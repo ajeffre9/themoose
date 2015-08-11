@@ -1,26 +1,117 @@
-<%= link_to 'Back', pins_path %>
+<%= link_to pins_path do %>
+  <span class="glyphicon glyphicon-arrow-left"></span>
+<% end %>
+    <div class="row ">
+        <div class="col-md-12 col-sm-12">
+          
+          <div class="jumbotron jumbotron-default">
+            <div class="container">
+              <div class="col-md-12 center">
 
-<div class="row">
-  <div class="col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading center">
-        <%= image_tag @pin.image.url(:medium) %>
-        <%= video_tag @video.video.path(:medium), type: @video.video_content_type %> 
+             
+              <%= image_tag @pin.image.url(:medium) %>
+              <% if false %>
+              <%= video_tag @video.video.path(:medium), type: @video.video_content_type %> 
+              <% end %>
+
+              <div class="row ">
+                <% if @pin.user == current_user %>
+                  <%= link_to edit_pin_path(@pin) do %>
+                    <span class="glyphicon glyphicon-edit"></span>
+                    Edit
+                  <% end %>
+                <% end %>
+               </div>     
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="panel-body">
-        <p><%= @pin.description %></p>
-        <p><strong><%= @pin.user.email if @pin.user %></strong></p>
 
-        <% if @pin.user == current_user %>
-          <%= link_to edit_pin_path(@pin) do %>
-        <span class="glyphicon glyphicon-edit"></span>
-        Edit
-      <% end %>
-        <% end %>
+      <div class="col-md-9">
+
+          <div class="row ">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <div class="panel-title">
+                  <h3><strong><%= @pin.filename if @pin.filename %></strong></h3>
+                </div>
+              </div>
+
+              <div class="panel-body">
+
+                <p>Total views, likes and dislikes along with glyphicons</p>
+                <p>Drop down menus for: Share links, personal playlists including favourites</p>
+              </div>
+            </div>
+          </div><!--/row-->
+
+      <div class="row ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+
+                  <h4>Published: insert published date here</h4>
+                
+                </div>        
+                  <div class="panel-body">
+            
+                    <p><%= @pin.description %></p>
+                    <p>Video description: implement a drop down panel for full description</p>
+
+                  </div>
+            </div>
+        </div>
+      </div><!--/row-->
+
+      <div class="row ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="panel-title">
+                      <h3>Comments</h3>
+                </div>
+                
+                <div class="panel-body">
+      
+                <p>Video description: implement a drop down panel for full description</p>
+                
+                </div>
+            </div>
+        </div>
+      </div><!--/row-->      
 
       </div>
-    </div>
-  </div>
-</div>
 
+
+    <div class="col-md-3">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="panel-title">
+              <h3>Suggested Videos</h3>
+            </div>
+          </div>
+
+          <div class="panel-body">
+
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+                <a href="#" class="list-group-item">Link</a>
+
+            </div>
+          </div>
+        </div>
+      </div><!--/row-->
+
+    </div><!--/.container-->
+
+   
 

@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'bootstrap-sass'
 
+#Added for Windows compatibility
+gem 'tzinfo-data'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
